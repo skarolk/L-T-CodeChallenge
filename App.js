@@ -18,7 +18,7 @@ export default class App extends React.Component {
       <View style={styles.appContainer}>
         <View style={styles.titleContainer}>
           <Icon name="menu" size={30} color="white" />
-          <View>
+          <View style={{ width: 285 }}>
             <Text style={styles.title}>Overview</Text>
             <View style={styles.subTextContainer}>
               <Text style={styles.subText}>Gary SteelWorks</Text>
@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   subTextContainer: {
-    flexDirection: "row",
-    paddingRight: 75
+    flexDirection: "row"
   }
 });

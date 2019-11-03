@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+import { Icon } from "react-native-elements";
 
 export default class Card extends React.Component {
   render() {
@@ -17,15 +18,21 @@ export default class Card extends React.Component {
       <View style={styles.cardContainer}>
         {alarmCount > 0 ? (
           <View style={styles.headerContainerRed}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.subText}>{subtitle}</Text>
-            <Text style={styles.subText}>{deviceCount} Devices</Text>
+            <View style={{ width: 295 }}>
+              <Text style={styles.title}>{title}</Text>
+              <Text style={styles.subText1}>{subtitle}</Text>
+              <Text style={styles.subText2}>{deviceCount} Devices</Text>
+            </View>
+            <Icon name="more-vert" size={30} color="white" />
           </View>
         ) : (
           <View style={styles.headerContainerBlue}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.subText}>{subtitle}</Text>
-            <Text style={styles.subText}>{deviceCount} Devices</Text>
+            <View style={{ width: 295 }}>
+              <Text style={styles.title}>{title}</Text>
+              <Text style={styles.subText1}>{subtitle}</Text>
+              <Text style={styles.subText2}>{deviceCount} Devices</Text>
+            </View>
+            <Icon name="more-vert" size={30} color="white" />
           </View>
         )}
         <Text style={styles.textStyle}>
@@ -49,7 +56,7 @@ const styles = StyleSheet.create({
     marginBottom: 0
   },
   title: {
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: "bold",
     color: "white",
     marginLeft: 15
@@ -67,7 +74,8 @@ const styles = StyleSheet.create({
     borderBottomColor: "#D6D7DA",
     backgroundColor: "firebrick",
     borderTopLeftRadius: 8,
-    borderTopRightRadius: 8
+    borderTopRightRadius: 8,
+    flexDirection: "row"
   },
   headerContainerBlue: {
     paddingTop: 15,
@@ -76,9 +84,15 @@ const styles = StyleSheet.create({
     borderBottomColor: "#D6D7DA",
     backgroundColor: "royalblue",
     borderTopLeftRadius: 8,
-    borderTopRightRadius: 8
+    borderTopRightRadius: 8,
+    flexDirection: "row"
   },
-  subText: {
+  subText1: {
+    color: "white",
+    marginLeft: 15,
+    fontWeight: "bold"
+  },
+  subText2: {
     color: "white",
     marginLeft: 15
   }
