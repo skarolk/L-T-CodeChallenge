@@ -15,8 +15,19 @@ export default class Card extends React.Component {
 
     return (
       <View style={styles.cardContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text>{subtitle}</Text>
+        {alarmCount > 0 ? (
+          <View style={styles.headerContainerRed}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.subText}>{subtitle}</Text>
+            <Text style={styles.subText}>{deviceCount} Devices</Text>
+          </View>
+        ) : (
+          <View style={styles.headerContainerBlue}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.subText}>{subtitle}</Text>
+            <Text style={styles.subText}>{deviceCount} Devices</Text>
+          </View>
+        )}
         <Text style={styles.textStyle}>
           {values.humidity
             ? `Humidity: ${values.humidity} Temperature: ${values.temperature}`
@@ -34,13 +45,14 @@ const styles = StyleSheet.create({
     borderColor: "#d6d7da",
     borderWidth: 2,
     borderRadius: 10,
-    padding: 15,
     margin: 15,
     marginBottom: 0
   },
   title: {
     fontSize: 14,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: "white",
+    marginLeft: 15
   },
   textStyle: {
     fontSize: 26,
@@ -48,8 +60,26 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingVertical: 15
   },
-  buttonGroup: {
-    flexDirection: "row",
-    justifyContent: "space-between"
+  headerContainerRed: {
+    paddingTop: 15,
+    paddingBottom: 25,
+    borderBottomWidth: 1,
+    borderBottomColor: "#D6D7DA",
+    backgroundColor: "firebrick",
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8
+  },
+  headerContainerBlue: {
+    paddingTop: 15,
+    paddingBottom: 25,
+    borderBottomWidth: 1,
+    borderBottomColor: "#D6D7DA",
+    backgroundColor: "royalblue",
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8
+  },
+  subText: {
+    color: "white",
+    marginLeft: 15
   }
 });

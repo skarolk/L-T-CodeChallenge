@@ -868,6 +868,11 @@
   resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-1.0.13.tgz#1ed76734267f77dd4b390836f61d01439fc35132"
   integrity sha512-tneNNYclHmNNIbo6J7XXEumoJZLBXqeO2LFufWxRvIs5yeVVfaJN3zWREl1oo5KP67aDixYgEKB7LH0oeTL+lQ==
 
+"@pxblue/icons@^1.0.24":
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/@pxblue/icons/-/icons-1.0.24.tgz#655eb372450df8e23ca01f24ff2621bc5844564c"
+  integrity sha512-K4ZFZjcthKnrPI+KYhG5ebuFWxqtthR4BwUiG6mLYsg0V/TtgQWxMhQvzteC8IimT2cm23os5r+NKlfA4LAwrg==
+
 "@pxblue/react-native-components@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@pxblue/react-native-components/-/react-native-components-2.0.1.tgz#d3c3765b5a103b7dd1f9dca4dc5f1bd7ab3af167"
