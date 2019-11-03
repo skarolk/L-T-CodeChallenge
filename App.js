@@ -17,15 +17,30 @@ export default class App extends React.Component {
     return (
       <View style={styles.appContainer}>
         <View style={styles.titleContainer}>
-          <Icon name="menu" size={30} color="white" />
+          <Icon
+            name="menu"
+            size={30}
+            color="white"
+            onPress={() => console.log("clicked")}
+          />
           <View style={{ width: 285 }}>
             <Text style={styles.title}>Overview</Text>
             <View style={styles.subTextContainer}>
               <Text style={styles.subText}>Gary SteelWorks</Text>
-              <Icon name="arrow-drop-down" size={25} color="white" />
+              <Icon
+                name="arrow-drop-down"
+                size={25}
+                color="white"
+                onPress={() => console.log("clicked")}
+              />
             </View>
           </View>
-          <Icon name="more-vert" size={30} color="white" />
+          <Icon
+            name="more-vert"
+            size={30}
+            color="white"
+            onPress={() => console.log("clicked")}
+          />
         </View>
 
         <ScrollView style={styles.cardList}>
