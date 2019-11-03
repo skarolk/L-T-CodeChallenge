@@ -75,9 +75,6 @@ const styles = StyleSheet.create({
   cardList: {
     paddingBottom: 15
   },
-  cardListContainer: {
-    flex: 1
-  },
   subText: {
     color: "white",
     marginLeft: 35,

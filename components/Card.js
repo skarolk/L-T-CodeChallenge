@@ -105,50 +105,66 @@ export default class Card extends React.Component {
                 <Text style={{ paddingLeft: 5 }}> {commStatus}</Text>
               </View>
             </View>
-            <View style={{ flexDirection: "row", width: 125 }}>
-              <View style={{ flexDirection: "column", paddingRight: 10 }}>
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ flexDirection: "column" }}>
                 {values.temperature ? (
-                  <Icon name="add-alert" size={20} color="slategray" />
+                  <Icon name="wb-sunny" size={20} color="slategray" />
                 ) : null}
-                <Text style={styles.textStyle}>
-                  {values.temperature ? `${values.temperature}` : null}
-                </Text>
-                <Text style={styles.textStyle}>
-                  {values.temperature ? `Temperature` : null}
-                </Text>
+                {values.temperature ? (
+                  <Text style={styles.textStyle}>
+                    {values.temperature ? `${values.temperature}°F` : null}
+                  </Text>
+                ) : null}
+                {values.temperature ? (
+                  <Text style={styles.textStyle}>
+                    {values.temperature ? `Temperature` : null}
+                  </Text>
+                ) : null}
               </View>
-              <View style={{ flexDirection: "column", paddingRight: 10 }}>
+              <View style={{ flexDirection: "column" }}>
                 {values.humidity ? (
-                  <Icon name="alarm" size={20} color="slategray" />
+                  <Icon name="opacity" size={20} color="slategray" />
                 ) : null}
-                <Text style={styles.textStyle}>
-                  {values.humidity ? `${values.humidity}` : null}
-                </Text>
-                <Text style={styles.textStyle}>
-                  {values.humidity ? `Humidity` : null}
-                </Text>
+                {values.humidity ? (
+                  <Text style={styles.textStyle}>
+                    {values.humidity ? `${values.humidity}%` : null}
+                  </Text>
+                ) : null}
+                {values.humidity ? (
+                  <Text style={styles.textStyle}>
+                    {values.humidity ? `Humidity` : null}
+                  </Text>
+                ) : null}
               </View>
-              <View style={{ flexDirection: "column", paddingRight: 10 }}>
+              <View style={{ flexDirection: "column" }}>
                 {values.flow ? (
-                  <Icon name="alarm" size={20} color="slategray" />
+                  <Icon name="swap-horiz" size={20} color="slategray" />
                 ) : null}
-                <Text style={styles.textStyle}>
-                  {values.flow ? `${values.flow}` : null}
-                </Text>
-                <Text style={styles.textStyle}>
-                  {values.flow ? `Flow` : null}
-                </Text>
+                {values.flow ? (
+                  <Text style={styles.textStyle}>
+                    {values.flow ? `${values.flow}KSCFH` : null}
+                  </Text>
+                ) : null}
+                {values.flow ? (
+                  <Text style={styles.textStyle}>
+                    {values.flow ? `Flow` : null}
+                  </Text>
+                ) : null}
               </View>
-              <View style={{ flexDirection: "column", paddingRight: 10 }}>
+              <View style={{ flexDirection: "column" }}>
                 {values.volume ? (
-                  <Icon name="alarm" size={20} color="slategray" />
+                  <Icon name="local-drink" size={20} color="slategray" />
                 ) : null}
-                <Text style={styles.textStyle}>
-                  {values.volume ? `${values.volume}` : null}
-                </Text>
-                <Text style={styles.textStyle}>
-                  {values.volume ? `Volume` : null}
-                </Text>
+                {values.volume ? (
+                  <Text style={styles.textStyle}>
+                    {values.volume ? `${values.volume}KSCF` : null}
+                  </Text>
+                ) : null}
+                {values.volume ? (
+                  <Text style={styles.textStyle}>
+                    {values.volume ? `Volume` : null}
+                  </Text>
+                ) : null}
               </View>
             </View>
           </View>
@@ -183,7 +199,8 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 15,
     textAlign: "center",
-    color: "darkslategrey"
+    color: "darkslategrey",
+    width: 100
   },
   headerContainerRed: {
     paddingTop: 15,
