@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, ScrollView, Text } from "react-native";
+import { StyleSheet, View, ScrollView, Text, StatusBar } from "react-native";
 import InfoCards from "./components/InfoCards";
 import data from "./sampleData.json";
 import { Icon } from "react-native-elements";
@@ -16,6 +16,7 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.appContainer}>
+        <StatusBar barStyle="light-content" />
         <View style={styles.titleContainer}>
           <Icon
             name="menu"

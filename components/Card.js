@@ -60,14 +60,104 @@ export default class Card extends React.Component {
           </View>
         )}
         <View>
-          <Text style={styles.textStyle}>
-            {values.humidity
-              ? `Humidity: ${values.humidity} Temperature: ${values.temperature}`
-              : null}
-            {values.flow
-              ? `Flow: ${values.flow} Volume: ${values.volume}`
-              : null}
-          </Text>
+          <View
+            style={{ flexDirection: "row", paddingTop: 15, paddingBottom: 15 }}
+          >
+            <View
+              style={{ flexDirection: "column ", width: 125, paddingLeft: 15 }}
+            >
+              <View style={{ flexDirection: "row", paddingBottom: 5 }}>
+                <Icon
+                  name="notification_important"
+                  size={20}
+                  color="slategray"
+                />
+                <Text style={{ paddingLeft: 5 }}> {alarmCount} Alarm</Text>
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 5 }}>
+                <Icon
+                  name="notification_important"
+                  size={20}
+                  color="slategray"
+                />
+                <Text style={{ paddingLeft: 5 }}> {eventCount} Event</Text>
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 5 }}>
+                <Icon
+                  name="notification_important"
+                  size={20}
+                  color="slategray"
+                />
+                <Text style={{ paddingLeft: 5 }}> {commStatus}</Text>
+              </View>
+            </View>
+            <View style={{ flexDirection: "row", width: 250 }}>
+              <View style={{ flexDirection: "column" }}>
+                {values.temperature ? (
+                  <Icon
+                    name="notification_important"
+                    size={20}
+                    color="slategray"
+                    paddingLeft={20}
+                  />
+                ) : null}
+                <Text style={styles.textStyle}>
+                  {values.temperature ? `${values.temperature}` : null}
+                </Text>
+                <Text style={styles.textStyle}>
+                  {values.temperature ? `Temperature` : null}
+                </Text>
+              </View>
+              <View style={{ flexDirection: "column" }}>
+                {values.humidity ? (
+                  <Icon
+                    name="notification_important"
+                    size={20}
+                    color="slategray"
+                    paddingLeft={20}
+                  />
+                ) : null}
+                <Text style={styles.textStyle}>
+                  {values.humidity ? `${values.humidity}` : null}
+                </Text>
+                <Text style={styles.textStyle}>
+                  {values.humidity ? `Humidity` : null}
+                </Text>
+              </View>
+              <View style={{ flexDirection: "column" }}>
+                {values.flow ? (
+                  <Icon
+                    name="notification_important"
+                    size={20}
+                    color="slategray"
+                    paddingLeft={20}
+                  />
+                ) : null}
+                <Text style={styles.textStyle}>
+                  {values.flow ? `${values.flow}` : null}
+                </Text>
+                <Text style={styles.textStyle}>
+                  {values.flow ? `Flow` : null}
+                </Text>
+              </View>
+              <View style={{ flexDirection: "column" }}>
+                {values.volume ? (
+                  <Icon
+                    name="notification_important"
+                    size={20}
+                    color="slategray"
+                    paddingLeft={20}
+                  />
+                ) : null}
+                <Text style={styles.textStyle}>
+                  {values.volume ? `${values.volume}` : null}
+                </Text>
+                <Text style={styles.textStyle}>
+                  {values.volume ? `Volume` : null}
+                </Text>
+              </View>
+            </View>
+          </View>
         </View>
         <TouchableOpacity
           style={styles.viewButton}
@@ -97,11 +187,10 @@ const styles = StyleSheet.create({
     marginLeft: 15
   },
   textStyle: {
-    fontSize: 26,
-    fontWeight: "bold",
+    fontSize: 15,
     textAlign: "center",
-    paddingVertical: 15,
-    color: "darkslategrey"
+    color: "darkslategrey",
+    paddingLeft: 20
   },
   headerContainerRed: {
     paddingTop: 15,
@@ -151,6 +240,6 @@ const styles = StyleSheet.create({
   viewButtonText: {
     color: "slategray",
     fontSize: 18,
-    width: 275
+    width: 285
   }
 });
