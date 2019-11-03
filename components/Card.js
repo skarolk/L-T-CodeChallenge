@@ -4,6 +4,7 @@ import { Icon } from "react-native-elements";
 
 export default class Card extends React.Component {
   render() {
+    // deconstructing props
     const {
       alarmCount,
       commStatus,
@@ -15,6 +16,9 @@ export default class Card extends React.Component {
     } = this.props.info;
 
     return (
+      // with more time, refactor card into three more components: CardHeader, CardBody, LocationButton
+
+      // colored card headers
       <View style={styles.cardContainer}>
         {alarmCount > 0 ? (
           <View style={styles.headerContainerRed}>
@@ -31,6 +35,7 @@ export default class Card extends React.Component {
               name="more-vert"
               size={30}
               color="white"
+              // pressable menu button
               onPress={() => console.log("clicked")}
             />
           </View>
@@ -38,7 +43,7 @@ export default class Card extends React.Component {
           <View
             style={
               alarmCount === null
-                ? styles.headerContainerslategray
+                ? styles.headerContainerGray
                 : styles.headerContainerBlue
             }
           >
@@ -55,14 +60,17 @@ export default class Card extends React.Component {
               name="more-vert"
               size={30}
               color="white"
+              // pressable menu button
               onPress={() => console.log("clicked")}
             />
           </View>
         )}
         <View>
+          {/* card main information container */}
           <View
             style={{ flexDirection: "row", paddingTop: 15, paddingBottom: 15 }}
           >
+            {/* alarm, even, comm status column */}
             <View
               style={{ flexDirection: "column ", width: 130, paddingLeft: 15 }}
             >
@@ -105,7 +113,9 @@ export default class Card extends React.Component {
                 <Text style={{ paddingLeft: 5 }}> {commStatus}</Text>
               </View>
             </View>
+            {/* temperature, humidity, flow, volume container */}
             <View style={{ flexDirection: "row" }}>
+              {/* temperature container */}
               <View style={{ flexDirection: "column" }}>
                 {values.temperature ? (
                   <Icon name="wb-sunny" size={20} color="slategray" />
@@ -121,6 +131,7 @@ export default class Card extends React.Component {
                   </Text>
                 ) : null}
               </View>
+              {/* humidity container */}
               <View style={{ flexDirection: "column" }}>
                 {values.humidity ? (
                   <Icon name="opacity" size={20} color="slategray" />
@@ -136,6 +147,7 @@ export default class Card extends React.Component {
                   </Text>
                 ) : null}
               </View>
+              {/* flow container */}
               <View style={{ flexDirection: "column" }}>
                 {values.flow ? (
                   <Icon name="swap-horiz" size={20} color="slategray" />
@@ -151,6 +163,7 @@ export default class Card extends React.Component {
                   </Text>
                 ) : null}
               </View>
+              {/* volume container */}
               <View style={{ flexDirection: "column" }}>
                 {values.volume ? (
                   <Icon name="local-drink" size={20} color="slategray" />
@@ -169,8 +182,10 @@ export default class Card extends React.Component {
             </View>
           </View>
         </View>
+        {/* view location button */}
         <TouchableOpacity
           style={styles.viewButton}
+          // pressable button
           onPress={() => console.log("clicked")}
         >
           <Text style={styles.viewButtonText}>View Location</Text>
@@ -222,7 +237,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 8,
     flexDirection: "row"
   },
-  headerContainerslategray: {
+  headerContainerGray: {
     paddingTop: 15,
     paddingBottom: 25,
     borderBottomWidth: 1,

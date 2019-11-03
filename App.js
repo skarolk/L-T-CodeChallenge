@@ -8,20 +8,25 @@ export default class App extends React.Component {
   state = { data: [] };
 
   componentDidMount() {
+    // importing data and updating state
     this.setState({ data: data });
   }
 
   render() {
+    // deconstructing state
     const { data } = this.state;
 
     return (
+      // header container
       <View style={styles.appContainer}>
+        {/* white status bar text */}
         <StatusBar barStyle="light-content" />
         <View style={styles.titleContainer}>
           <Icon
             name="menu"
             size={30}
             color="white"
+            // pressable menu button
             onPress={() => console.log("clicked")}
           />
           <View style={{ width: 285 }}>
@@ -40,10 +45,12 @@ export default class App extends React.Component {
             name="more-vert"
             size={30}
             color="white"
+            // pressable menu button
             onPress={() => console.log("clicked")}
           />
         </View>
 
+        {/* scrolling card container */}
         <ScrollView style={styles.cardList}>
           <InfoCards data={data} />
         </ScrollView>
