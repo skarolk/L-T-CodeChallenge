@@ -64,42 +64,51 @@ export default class Card extends React.Component {
             style={{ flexDirection: "row", paddingTop: 15, paddingBottom: 15 }}
           >
             <View
-              style={{ flexDirection: "column ", width: 125, paddingLeft: 15 }}
+              style={{ flexDirection: "column ", width: 130, paddingLeft: 15 }}
             >
               <View style={{ flexDirection: "row", paddingBottom: 5 }}>
-                <Icon
-                  name="notification_important"
-                  size={20}
-                  color="slategray"
-                />
-                <Text style={{ paddingLeft: 5 }}> {alarmCount} Alarm</Text>
+                {alarmCount > 0 ? (
+                  <Icon
+                    name="notifications-active"
+                    size={20}
+                    color="firebrick"
+                  />
+                ) : (
+                  <Icon name="notifications" size={20} color="slategray" />
+                )}
+                {alarmCount !== null ? (
+                  <Text style={{ paddingLeft: 5 }}> {alarmCount} Alarm</Text>
+                ) : (
+                  <Text style={{ paddingLeft: 5 }}> Unknown Alarm</Text>
+                )}
               </View>
               <View style={{ flexDirection: "row", paddingBottom: 5 }}>
-                <Icon
-                  name="notification_important"
-                  size={20}
-                  color="slategray"
-                />
-                <Text style={{ paddingLeft: 5 }}> {eventCount} Event</Text>
+                <Icon name="info" size={20} color="royalblue" />
+                {eventCount !== null ? (
+                  <Text style={{ paddingLeft: 5, color: "royalblue" }}>
+                    {" "}
+                    {eventCount} Event
+                  </Text>
+                ) : (
+                  <Text style={{ paddingLeft: 5, color: "royalblue" }}>
+                    {" "}
+                    Unkown Event
+                  </Text>
+                )}
               </View>
               <View style={{ flexDirection: "row", paddingBottom: 5 }}>
-                <Icon
-                  name="notification_important"
-                  size={20}
-                  color="slategray"
-                />
+                {commStatus === "Online" ? (
+                  <Icon name="cloud-circle" size={20} color="slategray" />
+                ) : (
+                  <Icon name="cloud-off" size={20} color="firebrick" />
+                )}
                 <Text style={{ paddingLeft: 5 }}> {commStatus}</Text>
               </View>
             </View>
-            <View style={{ flexDirection: "row", width: 250 }}>
-              <View style={{ flexDirection: "column" }}>
+            <View style={{ flexDirection: "row", width: 125 }}>
+              <View style={{ flexDirection: "column", paddingRight: 10 }}>
                 {values.temperature ? (
-                  <Icon
-                    name="notification_important"
-                    size={20}
-                    color="slategray"
-                    paddingLeft={20}
-                  />
+                  <Icon name="add-alert" size={20} color="slategray" />
                 ) : null}
                 <Text style={styles.textStyle}>
                   {values.temperature ? `${values.temperature}` : null}
@@ -108,14 +117,9 @@ export default class Card extends React.Component {
                   {values.temperature ? `Temperature` : null}
                 </Text>
               </View>
-              <View style={{ flexDirection: "column" }}>
+              <View style={{ flexDirection: "column", paddingRight: 10 }}>
                 {values.humidity ? (
-                  <Icon
-                    name="notification_important"
-                    size={20}
-                    color="slategray"
-                    paddingLeft={20}
-                  />
+                  <Icon name="alarm" size={20} color="slategray" />
                 ) : null}
                 <Text style={styles.textStyle}>
                   {values.humidity ? `${values.humidity}` : null}
@@ -124,14 +128,9 @@ export default class Card extends React.Component {
                   {values.humidity ? `Humidity` : null}
                 </Text>
               </View>
-              <View style={{ flexDirection: "column" }}>
+              <View style={{ flexDirection: "column", paddingRight: 10 }}>
                 {values.flow ? (
-                  <Icon
-                    name="notification_important"
-                    size={20}
-                    color="slategray"
-                    paddingLeft={20}
-                  />
+                  <Icon name="alarm" size={20} color="slategray" />
                 ) : null}
                 <Text style={styles.textStyle}>
                   {values.flow ? `${values.flow}` : null}
@@ -140,14 +139,9 @@ export default class Card extends React.Component {
                   {values.flow ? `Flow` : null}
                 </Text>
               </View>
-              <View style={{ flexDirection: "column" }}>
+              <View style={{ flexDirection: "column", paddingRight: 10 }}>
                 {values.volume ? (
-                  <Icon
-                    name="notification_important"
-                    size={20}
-                    color="slategray"
-                    paddingLeft={20}
-                  />
+                  <Icon name="alarm" size={20} color="slategray" />
                 ) : null}
                 <Text style={styles.textStyle}>
                   {values.volume ? `${values.volume}` : null}
@@ -189,8 +183,7 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 15,
     textAlign: "center",
-    color: "darkslategrey",
-    paddingLeft: 20
+    color: "darkslategrey"
   },
   headerContainerRed: {
     paddingTop: 15,
